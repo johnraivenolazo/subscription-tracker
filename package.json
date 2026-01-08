@@ -1,0 +1,28 @@
+{
+  "name": "subscription-tracker",
+  "version": "1.0.0",
+  "description": "Express, Mongo, Upstash, Arcjet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnraivenolazo/subscription-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/johnraivenolazo/subscription-tracker/issues"
+  },
+  "homepage": "https://github.com/johnraivenolazo/subscription-tracker#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
