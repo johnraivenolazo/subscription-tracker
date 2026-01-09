@@ -1,6 +1,6 @@
-import Schema, { model } from 'moongose'
+import mongoose, { model } from 'mongoose'
 
-const subscriptionSchema = new Schema({
+const subscriptionSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, "Subscription name is required"],
@@ -36,24 +36,28 @@ const subscriptionSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ['Active', 'Cancelled', Expired],
+        enum: ['Active', 'Cancelled', 'Expired'],
         default: 'Active'
     },
     startDate: {
-        type: Date(),
+        type: Date,
         required: true,
-        validator: function (value) {
-            return value <= new Date();
-        },
-        message: 'Start date must be less than or equal to today'
+        validate: {
+            validator: function (value) {
+                return value <= new Date();
+            },
+            message: 'Start date must be less than or equal to today'
+        }
     },
     renewalDate: {
-        type: Date(),
+        type: Date,
         required: true,
-        validator: function (value) {
-            return value >= this.startDate;
-        },
-        message: 'Renewal date must be greater than or equal to start date'
+        validate: {
+            validator: function (value) {
+                return value >= this.startDate;
+            },
+            message: 'Renewal date must be greater than or equal to start date'
+        }
     },
     user: {
         type: Schema.Types.ObjectId,

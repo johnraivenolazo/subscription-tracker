@@ -2,16 +2,25 @@ import { Router } from 'express'
 
 const userRouter = Router()
 
-userRouter.post('/sign-up', (req, res) => {
-    res.send({ title: "Sign up" })
+userRouter.get('/', (req, res) => {
+    res.send({ title: "Get All Users" })
 })
 
-userRouter.post('/sign-in', (req, res) => {
-    res.send({ title: "Sign in" })
+userRouter.get('/:id', (req, res) => {
+    res.send({ title: "Get User by ID" })
 })
 
-userRouter.post('/sign-out', (req, res) => {
-    res.send({ title: "Sign out" })
+userRouter.post('/', (req, res) => {
+    res.send({ title: "CREATE User" })
 })
+
+userRouter.put('/:id', (req, res) => {
+    res.send({ title: "UPDATE User" })
+})
+
+userRouter.delete('/:id', (req, res) => {
+    res.send({ title: "DELETE User" })
+})
+
 
 export default userRouter

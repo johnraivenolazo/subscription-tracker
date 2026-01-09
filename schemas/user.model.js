@@ -1,13 +1,13 @@
-import Schema, { model } from "mongoose";
+import mongoose, { model } from "mongoose";
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, 'User name is required'],
         minLength: 2,
         maxLength: 50,
     },
-    emall: {
+    email: {
         type: String,
         required: [true, 'User email is required'],
         unique: true,
