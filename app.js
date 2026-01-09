@@ -1,6 +1,7 @@
 import express from 'express'
 import { PORT } from './config/env.js'
 import { userRouter, authRouter, subscriptionRouter } from './routes/index.js'
+import connectToDatabase from './database/mongodb.js'
 
 const app = express()
 
@@ -12,9 +13,12 @@ app.use('/auth', authRouter)
 app.use('/users', userRouter)
 app.use('/subscriptions', subscriptionRouter)
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
     console.log(`Server running on port http://localhost:${PORT}`)
-}
-);
+    await connectToDatabase();
+});
+
+
+
 
 export default app;
